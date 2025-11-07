@@ -78,4 +78,11 @@ public class SalesItemTest
         boolean second = item.addComment("Fallon", "Not bad, but not good", 2);
         assertEquals(false, second);
     }
+    
+    @Test
+    public void testIllegalRatingBoundaries(){
+        SalesItem item = new SalesItem("Ducking", 12345);
+        assertEquals(false, item.addComment("Fallon", "Just bad", -1));
+        assertEquals(false, item.addComment("Bod", "Not bad, but not good", 6));
+    }
 }
