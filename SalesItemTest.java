@@ -69,4 +69,13 @@ public class SalesItemTest
         assertEquals("test name", salesIte1.getName());
         assertEquals(1000, salesIte1.getPrice());
     }
+    
+    @Test
+    public void testDuplicateAuthor(){
+        SalesItem item = new SalesItem("Rubber Ducking", 12345);
+        boolean first = item.addComment("Fallon", "Great book", 4);
+        assertEquals(true, first);
+        boolean second = item.addComment("Fallon", "Not bad, but not good", 2);
+        assertEquals(false, second);
+    }
 }
