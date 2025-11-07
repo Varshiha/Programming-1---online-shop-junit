@@ -82,7 +82,7 @@ public class SalesItemTest
     @Test
     public void testIllegalRatingBoundaries(){
         SalesItem item = new SalesItem("Ducking", 12345);
-        assertEquals(false, item.addComment("Fallon", "Just bad", 0));
+        assertEquals(false, item.addComment("Fallon", "Just bad", -1));
         assertEquals(false, item.addComment("Bod", "Not bad, but not good", 6));
     }
 }

@@ -13,11 +13,14 @@ import org.junit.jupiter.api.Test;
  */
 public class CommentTest
 {
+    private Comment comment;
+    
     /**
      * Default constructor for test class CommentTest
      */
     public CommentTest()
     {
+        
     }
 
     /**
@@ -28,6 +31,7 @@ public class CommentTest
     @BeforeEach
     public void setUp()
     {
+        comment = new Comment("Adam", "Wow", 4);
     }
 
     /**
@@ -38,5 +42,24 @@ public class CommentTest
     @AfterEach
     public void tearDown()
     {
+        comment = null;
+    }
+    @Test
+    public void testAuthorRatingStoredCorrectly(){
+        assertEquals("Adam", comment.getAuthor(), "Author should be Adam");
+        assertEquals(4, comment.getRating(), "Rating should be 4");
+        
+    }
+    @Test
+    public void testUpvote(){
+        comment.upvote();
+        assertEquals(1, comment.getVoteCount(), "Vote count = 1 after one upvote");
+        assertEquals(2, comment.getVoteCount(), "Vote count = 2 after two upvote");
+    }
+    @Test
+    public void testDownvote(){
+        comment.downvote();
+        assertEquals(-1, comment.getVoteCount(), "Vote count = -1 after one dwonvote");
+        assertEquals(-2, comment.getVoteCount(), "Vote count = -2 after two downvote");
     }
 }
