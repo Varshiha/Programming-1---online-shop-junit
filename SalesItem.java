@@ -135,13 +135,14 @@ public class SalesItem
      */
     public Comment findMostHelpfulComment()
     {
-        Iterator<Comment> it = comments.iterator();
-        Comment best = it.next();
-        while(it.hasNext()) {
-            Comment current = it.next();
-            if(current.getVoteCount() > best.getVoteCount()) {
+        Comment best = comments.get(0);
+        int i = 1;
+        while(i < comments.size()){
+            Comment current = comments.get(i);
+            if(current.getVoteCount() > best.getVoteCount()){
                 best = current;
             }
+            i++;
         }
         return best;
     }
