@@ -85,5 +85,23 @@ public class SalesItemTest
         assertEquals(false, item.addComment("Fallon", "Just bad", -1));
         assertEquals(false, item.addComment("Bod", "Not bad, but not good", 6));
     }
-    
+     
+    @Test
+    public void testFindMostHelpfulComment(){
+        SalesItem item = new  SalesItem("Book", 111);
+        item.addComment("Fallon", "Great", 4);
+        item.addComment("Chris", "Bad", 1);
+        item.addComment("Bob", "Okay", 3);
+        
+        item.upvoteComment(0);
+        item.upvoteComment(1);
+        item.upvoteComment(1);
+        item.upvoteComment(2);
+        
+        Comment best = item.findMostHelpfulComment();
+        
+        assertNotNull(best);//Make sure that something is returned
+        assertEquals("Chris", best.getAuthor());//check correct author
+        assertEquals(2, best.getVoteCount());//Checks vote count
+    }
 }
