@@ -85,4 +85,5 @@ public class SalesItemTest
         assertEquals(false, item.addComment("Fallon", "Just bad", -1));
         assertEquals(false, item.addComment("Bod", "Not bad, but not good", 6));
     }
+    
 }

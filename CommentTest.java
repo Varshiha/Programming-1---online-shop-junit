@@ -54,12 +54,14 @@ public class CommentTest
     public void testUpvote(){
         comment.upvote();
         assertEquals(1, comment.getVoteCount(), "Vote count = 1 after one upvote");
+        comment.upvote();
         assertEquals(2, comment.getVoteCount(), "Vote count = 2 after two upvote");
     }
     @Test
     public void testDownvote(){
         comment.downvote();
         assertEquals(-1, comment.getVoteCount(), "Vote count = -1 after one dwonvote");
+        comment.downvote();
         assertEquals(-2, comment.getVoteCount(), "Vote count = -2 after two downvote");
     }
 }
