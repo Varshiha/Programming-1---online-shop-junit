@@ -161,11 +161,13 @@ public class SalesItem
      * @return The comment if it exists; null if it doesn't.
      */
     private Comment findCommentByAuthor(String author)
-    {
-        for(Comment comment : comments) {
-            if(comment.getAuthor().equals(author)) {
+    {   int i = 0;
+        while(i < comments.size()){
+            Comment comment = comments.get(i);
+            if(comment.getAuthor().equals(author)){
                 return comment;
             }
+            i++;
         }
         return null;
     }
