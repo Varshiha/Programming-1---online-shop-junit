@@ -171,7 +171,7 @@ public class SalesItem
      * same price. The price is given in whole cents. For example for 
      * price==12345, the following String is returned: $123.45
      */
-    private String priceString(int price)
+    public String priceString(int price)
     {
         int dollars = price / 100;
         int cents = price - (dollars*100);

@@ -104,4 +104,37 @@ public class SalesItemTest
         assertEquals("Chris", best.getAuthor());//check correct author
         assertEquals(2, best.getVoteCount());//Checks vote count
     }
+    
+    @Test
+    public void testRemoveCommentValidIndex(){
+        SalesItem item = new  SalesItem("Book", 111);
+        item.addComment("Fallon", "Great", 4);
+        item.addComment("Bob", "Okay", 3);
+        
+        item.removeComment(0);
+        
+        assertEquals(1, item.getNumberOfComments());
+        assertEquals("Bob", item.findMostHelpfulComment().getAuthor());
+    }
+    
+    @Test
+    public void testRemoveCommentInvalidIndex(){
+        SalesItem item = new  SalesItem("Book", 111);
+        item.addComment("Fallon", "Great", 4);
+        item.addComment("Bob", "Okay", 3);
+        
+        item.removeComment(3);//index 3 doesnt exists, so nothing should happen
+        
+        assertEquals(2, item.getNumberOfComments());//Still has two comments
+        
+    }
+    @Test
+    public void testPriceString(){
+        SalesItem item = new  SalesItem("Book", 12345);
+        
+        assertEquals("$123.45", item.priceString(12345));
+        assertEquals("$1.00", item.priceString(100));
+        assertEquals("$1.09", item.priceString(109));
+        assertEquals("$0.05", item.priceString(5));
+    }
 }
