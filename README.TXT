@@ -16,3 +16,5 @@ a test class that demonstrates some of the testing functionality. Testing is fur
 discussed in the book.
 
 NOTE: There are several serious errors to be found in these classes.
+14.We have the setUp and tearDown methods.
+17. When u click on the test that is in red when we run the test, it gives information like "expected:<false> but was:<true>" and also we can click on show source and it goes to the code and highlights where the problem is.
